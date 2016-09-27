@@ -126,27 +126,29 @@ MarkdowneditorAssets::register($this);
 <!--        <img src="--><?php //echo Url::toRoute("@web/images/user/user.jpg") ?><!--" class="userImg">--><!--这里的toRoute是会经过index.php这个入口文件的-->
             <img src="<?php echo Url::to("@web/images/user/user.jpg") ?>" class="userImg"><!--而to只会接地址-->
     </div>
-
+<!--
     <div class="user_info">
         <h3><?= Html::encode($user->username) ?></h3>
 
         <h5><?= Html::encode($user->email) ?></h5>
     </div>
+    -->
     <?php
-    $user_share =
 
     echo \yii\bootstrap\Tabs::widget([
         'items' => [
             [
-                'label' => '我的分享',
-                'content' => 'Anim pariatur cliche...',
-                'active' => true
+                'label' => '我的博客',
+                'content' => 'loading...',
+                'headerOptions'=>['id'=>'myblog_nav'],//这里是头部选项的参数
+                'active' => true,
+                'options'=>['id'=>'blogContent']
             ],
             [
                 'label' => '我的收藏',
-                'content' => 'Anim pariatur cliche...',
-
-                'options' => ['id' => 'myveryownID'],
+                'content' => 'loading...',
+                'headerOptions'=>['id'=>'mycollect_nav'],
+                'options' => ['id' => 'collectContent'],
             ],
             [
                 'label' => 'Example',

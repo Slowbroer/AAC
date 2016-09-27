@@ -44,6 +44,25 @@ class UserController extends Controller {
         return $this->render('center',['cat_list'=>$cat_list,'model'=>$model,'user'=>$user]);
     }
 
+    public function actionRecent_blog(){
+        $user_id = Yii::$app->user->identity->id;
+        $blog = new Blog();
+
+        $list = $blog->getRecent($user_id);
+        if(empty($list))
+        {
+            return null;
+        }
+        else
+        {
+            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
+            return $content;
+        }
+
+
+
+    }
+
 
 
 }

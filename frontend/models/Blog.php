@@ -15,6 +15,7 @@ use Yii;
  * @property integer $cat_id
  * @property string $brief
  * @property string $key_word
+ * @property integer $check_time
  */
 class Blog extends \yii\db\ActiveRecord
 {
@@ -33,7 +34,7 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'user_id', 'content', 'cat_id', 'brief', 'key_word'], 'required'],
-            [['user_id', 'cat_id'], 'integer'],
+            [['user_id', 'cat_id','check_time'], 'integer'],
             [['content', 'key_word'], 'string'],
             [['title', 'user_name', 'brief'], 'string', 'max' => 255],
         ];
@@ -53,6 +54,7 @@ class Blog extends \yii\db\ActiveRecord
             'cat_id' => 'Cat ID',
             'brief' => 'Brief',
             'key_word' => 'Key Word',
+            'check_time' => 'check_time',
         ];
     }
 
@@ -65,5 +67,13 @@ class Blog extends \yii\db\ActiveRecord
     {
         return $this->find()->where(['id'=>$id])->one();
     }
+
+    public function getRecent($user_id)
+    {
+//        var_dump($user_id);
+        return $this->find()->where(['user_id'=>$user_id])->asArray()->all();
+    }
+
+
 
 }
