@@ -10,7 +10,7 @@
 
 <ul>
     <?php foreach($lists as $list){ ?>
-    <li><a href="<?= \yii\helpers\Url::toRoute('blog/info/id/'.$list['id']) ?>"><?= $list['title'] ?></a></li>
+    <li><a href="<?= \yii\helpers\Url::toRoute('blog/info').'&id='.$list['id'] ?>"><?= $list['title'] ?></a></li>
     <?php } ?>
 </ul>
 

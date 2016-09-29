@@ -15,12 +15,14 @@ use yii\web\Response;
 
 class BlogController extends Controller {
 
-    public function actioninfo(){
+    public function actionInfo(){
         $blog_id = Yii::$app->request->get('id');
         $blog = new Blog();
         $blog_info = $blog->info($blog_id);
-        Yii::$app->response->format=Response::FORMAT_JSON;
-        return ['blog'=>$blog];
+//        Yii::$app->response->format=Response::FORMAT_JSON;
+//        return ['blog'=>$blog];
+
+        return $this->render('info',['model'=>$blog_info]);
     }
     public function actionSave(){
         $data = Yii::$app->request->post('Blog');

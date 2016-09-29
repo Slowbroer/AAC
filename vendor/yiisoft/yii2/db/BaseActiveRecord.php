@@ -572,7 +572,7 @@ abstract class BaseActiveRecord extends Model implements ActiveRecordInterface
     public function getDirtyAttributes($names = null)
     {
         if ($names === null) {
-            $names = $this->attributes();
+            $names = $this->attributes();//这里如果为空的话，就会是所有的attribute
         }
         $names = array_flip($names);
         $attributes = [];
