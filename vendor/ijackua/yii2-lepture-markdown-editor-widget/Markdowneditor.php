@@ -57,6 +57,7 @@ class Markdowneditor extends InputWidget
 
 	public function run()
 	{
+//        var_dump('1');
 		MarkdowneditorAssets::register($this->view);
 		$this->registerScripts();
 

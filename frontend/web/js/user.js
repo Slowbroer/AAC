@@ -46,7 +46,11 @@ $('#myblog_nav').on('show.bs.tab', function (e) {
     );
     //console.log(e.target); // 激活的标签页
     //e.relatedTarget // 前一个激活的标签页
-})
+});
+
+$(".nav-list > li").on("mouseover",function(){
+
+});
 
 
 
