@@ -39,4 +39,19 @@ class BlogController extends Controller {
             return ['code'=>0,'message'=>'failed'];
         }
     }
+
+    public function actionDel()
+    {
+        $blog_id = $_POST['id'];
+        $result = array();
+        if(empty($blog_id)||!is_numeric($blog_id))
+        {
+            $result['code']=0;
+            return json_encode($result);
+        }
+        else
+        {
+
+        }
+    }
 }

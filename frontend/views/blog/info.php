@@ -17,16 +17,19 @@ use \yii\helpers\Html;
         <?php $form = ActiveForm::begin([
     'action'=>\yii\helpers\Url::toRoute('blog/save'),
 ]); ?>
-<?php echo $form->field($model,'title');?>
+<?php //echo $form->field($model,'title');?>
+    <h2 style="text-align: center;padding-bottom: 20px;">
+        <?php echo Html::encode($model['title'])?>
+    </h2>
 <!--        这里的$model必须是一个model类的实例，attribute指的是这个model类的一个字段，这个字段用来保存数据-->
 <?= \yii\helpers\Markdown::process($model['content']) ?>
 <?php //echo Markdowneditor::widget(['model' => $model, 'attribute' => 'content']) ?>
 <?php $form->field($model,'title');?>
 
-<div class="form-group">
-    <?= Html::submitButton('提交', ['class' => 'btn btn-success']) ?>
+<!--<div class="form-group">-->
+    <?php //echo Html::submitButton('提交', ['class' => 'btn btn-success']) ?>
 
-</div>
+<!--</div>-->
 <?php echo $form->field($model,'id')->hiddenInput()->label(false);?>
 <?php ActiveForm::end(); ?>
 

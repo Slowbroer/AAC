@@ -20,9 +20,14 @@ $('li.dropdown').mouseover(function() {
 
 //$('#myblog_nav').on('');
 
-$('#myblog_nav').on('show.bs.tab', function (e) {
-    console.log(e);
-    //console.log(e.href);
+$('#myblog_nav').on('show.bs.tab', recent_blog());
+
+$(".nav-list > li").on("mouseover",function(){
+
+});
+
+function recent_blog()
+{
     $.ajax(
         {
             url:'index.php?r=user/recent_blog',
@@ -46,12 +51,8 @@ $('#myblog_nav').on('show.bs.tab', function (e) {
     );
     //console.log(e.target); // 激活的标签页
     //e.relatedTarget // 前一个激活的标签页
-});
 
-$(".nav-list > li").on("mouseover",function(){
-
-});
-
+}
 
 
 
