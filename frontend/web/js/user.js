@@ -60,7 +60,7 @@ function recent_blog()
 
             },
             error:function(data){
-                console.log(data);
+                console.log(data['content']);
             }
         }
     );
