@@ -84,6 +84,7 @@ class Blog extends \yii\db\ActiveRecord
 
     public function recent_time($blog_id)
     {
+        $time = time();
 
     }
 

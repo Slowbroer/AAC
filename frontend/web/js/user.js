@@ -38,6 +38,7 @@ function recent_blog()
                     $('#blogContent').html("there is nothing here! ");
                 }
                 else{
+                    alert("test");
                     $('#blogContent').html(data);
                 }
 
