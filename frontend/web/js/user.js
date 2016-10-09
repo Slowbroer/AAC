@@ -44,6 +44,8 @@ function recent_blog()
     $.ajax(
         {
             url:'index.php?r=user/recent_blog',
+            type:"POST",
+            data:"user_id=3",
             success:function(data){
                 console.log(data);
                 if(data==null)
