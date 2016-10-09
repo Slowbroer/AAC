@@ -7,7 +7,7 @@
  */
 
 namespace frontend\controllers;
-
+header("Access-Control-Allow-Origin:* ");
 use app\models\Blog;
 use app\models\Catalog;
 use common\models\User;
