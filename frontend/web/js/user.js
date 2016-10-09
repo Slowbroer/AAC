@@ -31,6 +31,7 @@ function recent_blog()
     $.ajax(
         {
             url:'index.php?r=user/recent_blog',
+            method:"POST",
             success:function(data){
                 console.log(data);
                 if(data==null)
@@ -38,7 +39,7 @@ function recent_blog()
                     $('#blogContent').html("there is nothing here! ");
                 }
                 else{
-                    alert("test");
+                    //alert("test");
                     $('#blogContent').html(data);
                 }
 
