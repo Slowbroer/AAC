@@ -53,7 +53,7 @@ function recent_blog()
                 }
                 else{
                     //alert("test");
-                    $('#blogContent').html(data);
+                    $('#blogContent').html(data['content']);
                 }
 
 
