@@ -60,8 +60,8 @@ function recent_blog()
 
 
             },
-            error:function(){
-
+            error:function(data){
+                console.log(data);
             }
         }
     );
