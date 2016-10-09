@@ -33,7 +33,8 @@ class Blog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'user_id', 'content', 'cat_id', 'brief', 'key_word'], 'required'],
+//            [['title', 'user_id', 'content', 'cat_id', 'brief', 'key_word'], 'required'],
+            [['title', 'user_id', 'content'], 'required'],
             [['user_id', 'cat_id','check_time'], 'integer'],
             [['content', 'key_word'], 'string'],
             [['title', 'user_name', 'brief'], 'string', 'max' => 255],

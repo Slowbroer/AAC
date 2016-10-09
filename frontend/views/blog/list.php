@@ -35,6 +35,12 @@ use \yii\bootstrap\Html;
   <?php } ?>
 </div>
 
+<div style="margin: 10px auto">
+    <a href="index.php?r=blog/add">
+    <button type="button" class="btn btn-info">新建博客</button>
+    </a>
+</div>
+
 <script type="text/javascript">
 function del_blog(id)
 {

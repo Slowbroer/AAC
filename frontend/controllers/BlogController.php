@@ -27,16 +27,32 @@ class BlogController extends Controller {
     public function actionSave(){
         $data = Yii::$app->request->post('Blog');
 
-        $blog = Blog::findOne($data['id']);
+        if(empty($data['id']))
+        {
+            $blog = new Blog();
+            $blog['user_id']=Yii::$app->user->id;
+        }
+        else
+        {
+            $blog = Blog::findOne($data['id']);
+        }
+
+
+
         $blog->load(Yii::$app->request->post());//load函数是更新这个实例变量的数据
         Yii::$app->response->format=Response::FORMAT_JSON;
         if($blog->save())//这里的save是跳到BaseActiveRecord，但是BaseActiveRecord中save的update是跳到ActiveRecord那边
         {
-            return ['code'=>1,'message'=>'success'];
+//            return ['code'=>1,'message'=>'success'];
+            $result = array('code'=>1,'content'=>'commit success');
+            echo $this->render("/result",['result'=>$result]);
         }
+
         else
         {
-            return ['code'=>0,'message'=>'failed'];
+            $result = array('code'=>0,'content'=>'commit faild');
+            echo $this->render("/error/error",['result'=>$result]);
+//            return ['code'=>0,'message'=>'failed'];
         }
     }
 
@@ -72,5 +88,13 @@ class BlogController extends Controller {
         }
 
     }
+
+    public function actionAdd()
+    {
+        $blog = new Blog();
+        echo $this->render("add",['model'=>$blog]);
+    }
+
+
 
 }
