@@ -63,6 +63,10 @@ class UserController extends Controller {
 
     }
 
+    public function actionTest(){
+        $id=$_POST['id'];
+    }
+
 
 
 }

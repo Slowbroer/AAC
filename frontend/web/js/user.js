@@ -25,6 +25,19 @@ $('#myblog_nav').on('show.bs.tab', recent_blog());
 $(".nav-list > li").on("mouseover",function(){
 
 });
+$(function(){
+    $.ajax({
+        url:"index.php?r=user/test",
+        type:"POST",
+        data:"id=1",
+        success:function(){
+            alert("test");
+        },
+        error:function(){
+            alert("faild");
+        }
+    });
+});
 
 function recent_blog()
 {
