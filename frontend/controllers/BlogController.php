@@ -40,7 +40,7 @@ class BlogController extends Controller {
 
 
         $blog->load(Yii::$app->request->post());//load函数是更新这个实例变量的数据
-        Yii::$app->response->format=Response::FORMAT_JSON;
+//        Yii::$app->response->format=Response::FORMAT_JSON;
         if($blog->save())//这里的save是跳到BaseActiveRecord，但是BaseActiveRecord中save的update是跳到ActiveRecord那边
         {
 //            return ['code'=>1,'message'=>'success'];
