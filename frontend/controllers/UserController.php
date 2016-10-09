@@ -52,12 +52,14 @@ class UserController extends Controller {
         $list = $blog->getRecent($user_id);
         if(empty($list))
         {
-            return null;
+            $result=array('content'=>"");
+            return json_encode($result);
         }
         else
         {
             $content = $this->renderPartial('/blog/list',['lists'=>$list]);
-            return $content;
+            $result=array('content'=>$content);
+            echo  json_encode($result);
         }
 
 
