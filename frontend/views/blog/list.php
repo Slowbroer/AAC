@@ -28,8 +28,8 @@ use \yii\bootstrap\Html;
   <?php foreach($lists as $list){ ?>
     <div class="panel-heading">
         <a href="<?php echo \yii\helpers\Url::toRoute('blog/info').'&id='.$list['id'] ?>"><?= $list['title'] ?></a>
-        <a style="float: right;padding-left: 10px" href="<?php echo \yii\helpers\Url::toRoute('blog/edit').'&id='.$list['id'] ?>">编辑</a>
-        <a style="float: right" href="#" onclick="del_blog(<?php echo $list['id'] ?>)">删除</a>
+        <a style="float: right;padding-left: 10px" href="#" onclick="del_blog(<?php echo $list['id'] ?>)">删除</a>
+        <a style="float: right;" href="<?php echo \yii\helpers\Url::toRoute('blog/edit').'&id='.$list['id'] ?>">编辑</a>
     </div>
     <div class="panel-body"><?php echo Html::encode($list['brief'])?></div>
   <?php } ?>
@@ -38,11 +38,12 @@ use \yii\bootstrap\Html;
 <script type="text/javascript">
 function del_blog(id)
 {
+    confirm("Are you sure to delete this blog");
     $.ajax(
         {
 
             url:'index.php?r=blog/del',
-            data:"id="+id,
+            data:{id:id},
             type:"POST",
             success:function(){
                 recent_blog();

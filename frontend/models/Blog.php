@@ -74,6 +74,18 @@ class Blog extends \yii\db\ActiveRecord
         return $this->find()->where(['user_id'=>$user_id])->asArray()->all();
     }
 
+    public function del($user_id,$blog_id)
+    {
+        $blog = $this->find()->where(['user_id'=>$user_id,'id'=>$blog_id])->one();
+        $blog->delete();
+    }
+
+
+    public function recent_time($blog_id)
+    {
+
+    }
+
 
 
 }

@@ -51,7 +51,26 @@ class BlogController extends Controller {
         }
         else
         {
-
+            $blog = new Blog();
+            $result = $blog->del(Yii::$app->user->id,$blog_id);
         }
     }
+    public function actionEdit()
+    {
+        $blog_id = isset($_GET['id'])? $_GET['id']:0;
+        if(empty($blog_id)||!is_numeric($blog_id))
+        {
+            $result['code']=0;
+            $result['content']="参数出错";
+            echo $this->render("/error/error",['result'=>$result]);
+        }
+        else
+        {
+            $blog = Blog::findOne($blog_id);
+            echo $this->render('edit',['model'=>$blog]);
+
+        }
+
+    }
+
 }
