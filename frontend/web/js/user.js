@@ -53,14 +53,14 @@ function recent_blog()
                 }
                 else{
                     //alert("test");
-                    $('#blogContent').html(data['content']);
+                    $('#blogContent').html(data);
                 }
 
 
 
             },
             error:function(data){
-                console.log(data['content']);
+                console.log(data);
             }
         }
     );
