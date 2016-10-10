@@ -45,12 +45,13 @@ class UserController extends Controller {
     }
 
     public function actionRecent_blog(){
-        $user_id = Yii::$app->user->identity->id;
+        $user_id = Yii::$app->user->id;
 //        var_dump($user_id);
         $blog = new Blog();
 
-        $list = $blog->getRecent($user_id);
+//        $list = $blog->getRecent($user_id);
 
+        $list = "test";
         if(empty($list))
         {
             return null;
@@ -58,11 +59,11 @@ class UserController extends Controller {
         else
         {
 ////            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
-//            $content = "test";
-//             echo $content;
+            $content = "test";
+             echo $content;
         }
 
-        echo "test";
+//        echo "test";
 
 
 
