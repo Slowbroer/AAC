@@ -59,13 +59,13 @@ class UserController extends Controller {
 //        $list = "test";
         if(empty($list))
         {
-            return null;
+            return "failed";
         }
         else
         {
             $content = $this->renderPartial('/blog/list',['lists'=>$list]);
 //            $content = "test";
-             echo $content;
+            return $content;
         }
 
 //        echo "test";
