@@ -44,7 +44,8 @@ function recent_blog()
     $.ajax(
         {
             url:'index.php?r=user/recent_blog',
-            headers: {'X-Requested-With': 'XMLHttpRequest'},
+            //headers: {'X-Requested-With': 'XMLHttpRequest'},
+            crossDomain: false,
             success:function(data){
                 console.log(data);
                 if(data==null)
