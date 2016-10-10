@@ -49,17 +49,18 @@ class UserController extends Controller {
         var_dump($user_id);
         $blog = new Blog();
 
-        $list = $blog->getRecent($user_id);
-        if(empty($list))
-        {
-            return null;
-        }
-        else
-        {
-//            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
-            $content = "test";
-             echo $content;
-        }
+//        $list = $blog->getRecent($user_id);
+
+//        if(empty($list))
+//        {
+//            return null;
+//        }
+//        else
+//        {
+////            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
+//            $content = "test";
+//             echo $content;
+//        }
 
 
 
