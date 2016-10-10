@@ -16,6 +16,8 @@ use yii\web\Controller;
 
 class UserController extends Controller {
 
+
+
     public function actionCenter(){
 //        var_dump(Yii::$app->user->identity->id);
         $id = Yii::$app->user->identity->id;
@@ -45,7 +47,7 @@ class UserController extends Controller {
     }
 
     public function actionRecent_blog(){
-        $user_id = Yii::$app->user->id;
+        $user_id = Yii::$app;
         var_dump($user_id);
         $user_id = isset($_POST['user_id'])? $_POST['user_id']:0;
         $blog = new Blog();
