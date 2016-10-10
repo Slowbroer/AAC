@@ -45,7 +45,7 @@ class UserController extends Controller {
     }
 
     public function actionRecent_blog(){
-        $user_id = Yii::$app->user->getId();
+        $id = Yii::$app->user->identity->id;
 //        var_dump($user_id);
         $blog = new Blog();
 
