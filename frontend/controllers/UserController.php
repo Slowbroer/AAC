@@ -62,6 +62,8 @@ class UserController extends Controller {
 //             echo $content;
 //        }
 
+        echo "test";
+
 
 
     }
