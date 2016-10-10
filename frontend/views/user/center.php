@@ -5,6 +5,7 @@
  * Date: 2016-08-30
  * Time: 11:10
  */
+header("Access-Control-Allow-Origin:* ");
 use frontend\assets\UserAsset;
 use yii\bootstrap\NavBar;
 use \yii\bootstrap\Nav;
