@@ -45,22 +45,22 @@ function recent_blog()
         {
             url:'index.php?r=user/recent_blog',
 
-            success:function(data){
-                console.log(data);
-                if(data==null)
-                {
-                    $('#blogContent').html("there is nothing here! ");
-                }
-                else{
-                    //alert("test");
-                    $('#blogContent').html(data);
-                }
+            success:function(){
+                //console.log(data);
+                //if(data==null)
+                //{
+                //    $('#blogContent').html("there is nothing here! ");
+                //}
+                //else{
+                //    //alert("test");
+                //    $('#blogContent').html(data);
+                //}
 
 
 
             },
-            error:function(data){
-                console.log(data);
+            error:function(){
+                //console.log(data);
             }
         }
     );
