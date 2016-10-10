@@ -22,6 +22,8 @@ class UserController extends Controller {
 //        var_dump(Yii::$app->user->identity->id);
         $id = Yii::$app->user->identity->id;
 
+        var_dump( Yii::$app->user);
+
         $user = User::findIdentity($id);
 
         $catalog = new Catalog();
