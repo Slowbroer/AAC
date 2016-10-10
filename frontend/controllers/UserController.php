@@ -56,15 +56,15 @@ class UserController extends Controller {
 
         $list = $blog->getRecent($user_id);
 
-        $list = "test";
+//        $list = "test";
         if(empty($list))
         {
             return null;
         }
         else
         {
-////            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
-            $content = "test";
+            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
+//            $content = "test";
              echo $content;
         }
 
