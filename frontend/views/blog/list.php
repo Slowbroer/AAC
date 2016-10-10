@@ -41,28 +41,6 @@ use \yii\bootstrap\Html;
     </a>
 </div>
 
-<script type="text/javascript">
-function del_blog(id)
-{
-    confirm("Are you sure to delete this blog");
-    $.ajax(
-        {
-
-            url:'index.php?r=blog/del',
-            data:{id:id},
-            type:"POST",
-            success:function(){
-                recent_blog();
-
-            },
-            error:function(){
-                alert("delete failed")
-            }
-
-        }
-    );
-}
-</script>
 
 
 
