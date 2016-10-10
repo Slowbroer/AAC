@@ -47,14 +47,14 @@ function recent_blog()
 
             success:function(data){
                 console.log(data);
-                //if(data==null)
-                //{
-                //    $('#blogContent').html("there is nothing here! ");
-                //}
-                //else{
-                //    //alert("test");
-                //    $('#blogContent').html(data);
-                //}
+                if(data==null)
+                {
+                    $('#blogContent').html("there is nothing here! ");
+                }
+                else{
+                    //alert("test");
+                    $('#blogContent').html(data);
+                }
 
 
 
