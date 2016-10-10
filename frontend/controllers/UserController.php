@@ -7,7 +7,7 @@
  */
 
 namespace frontend\controllers;
-header("Access-Control-Allow-Origin:* ");
+//header("Access-Control-Allow-Origin:* ");
 use app\models\Blog;
 use app\models\Catalog;
 use common\models\User;
@@ -45,7 +45,7 @@ class UserController extends Controller {
     }
 
     public function actionRecent_blog(){
-//        $user_id = Yii::$app->user->id;
+        $user_id = Yii::$app->user->getId();
 //        var_dump($user_id);
         $blog = new Blog();
 
