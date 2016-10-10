@@ -16,7 +16,7 @@ use yii\web\Controller;
 
 class UserController extends Controller {
 
-
+    public $enableCsrfValidation = false;
 
     public function actionCenter(){
 //        var_dump(Yii::$app->user->identity->id);
