@@ -22,6 +22,10 @@ class UserController extends Controller {
 //        var_dump(Yii::$app->user->identity->id);
         $id = Yii::$app->user->identity->id;
 
+
+
+        //var_dump($_SESSION);//这里会打印出$_SESSION['id']
+
 //        var_dump( Yii::$app->user);
 
         $user = User::findIdentity($id);
