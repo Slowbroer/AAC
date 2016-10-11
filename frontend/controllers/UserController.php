@@ -61,26 +61,26 @@ class UserController extends Controller {
 //        }
 
         $user = Yii::$app->user->identity;
-        print_r($user['id']);
-
-
-//        var_dump(Yii::$app->user->identity);
-//        $user_id = isset($_POST['user_id'])? $_POST['user_id']:0;
-        $blog = new Blog();
-        $user_id = 2;
-        $list = $blog->getRecent($user_id);
-
-//        $list = "test";
-        if(empty($list))
-        {
-            return "failed";
-        }
-        else
-        {
-            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
-//            $content = "test";
-            return $content;
-        }
+//        print_r($user['id']);
+//
+//
+////        var_dump(Yii::$app->user->identity);
+////        $user_id = isset($_POST['user_id'])? $_POST['user_id']:0;
+//        $blog = new Blog();
+//        $user_id = 2;
+//        $list = $blog->getRecent($user_id);
+//
+////        $list = "test";
+//        if(empty($list))
+//        {
+//            return "failed";
+//        }
+//        else
+//        {
+//            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
+////            $content = "test";
+//            return $content;
+//        }
     }
 
     public function actionTest(){
