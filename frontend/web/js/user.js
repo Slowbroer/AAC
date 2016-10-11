@@ -46,8 +46,8 @@ function recent_blog()
             url:'index.php?r=user/recent_blog',
             //headers: {'X-Requested-With': 'XMLHttpRequest'},
             //crossDomain: false,
-            data:"user_id="+2,
-            type:"POST",
+            //data:"user_id="+2,
+            //type:"POST",
             success:function(data){
                 console.log(data);
                 if(data==null)
