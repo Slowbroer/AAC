@@ -326,7 +326,9 @@ class Session extends Component implements \IteratorAggregate, \ArrayAccess, \Co
     public function setSavePath($value)
     {
         $path = Yii::getAlias($value);
+        var_dump($path);
         if (is_dir($path)) {
+
             session_save_path($path);
         } else {
             throw new InvalidParamException("Session save path is not a valid directory: $value");
