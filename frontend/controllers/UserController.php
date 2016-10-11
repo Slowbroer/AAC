@@ -49,7 +49,7 @@ class UserController extends Controller {
     }
 
     public function actionRecent_blog(){
-        print_r(Yii::$app->user->identity);
+//        print_r(Yii::$app->user->identity);
         if(isset(Yii::$app->user->identity))
         {
 
