@@ -68,7 +68,7 @@ class UserController extends Controller {
 //        $user_id = isset($_POST['user_id'])? $_POST['user_id']:0;
         if(!Yii::$app->user->isGuest)
         {
-            $user_id = Yii::$app->user->identity->id;
+            $user_id = Yii::$app->user->id;
         }
         else
         {
