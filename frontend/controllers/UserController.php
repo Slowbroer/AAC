@@ -79,16 +79,22 @@ class UserController extends Controller {
         $list = $blog->getRecent($user_id);
 
 //        $list = "test";
-        if(empty($list))
-        {
-            return "failed";
-        }
-        else
-        {
-            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
-//            $content = "test";
-            return $content;
-        }
+        $content = $this->renderPartial('/blog/list',['lists'=>$list]);
+        return $content;
+
+
+//        if(empty($list))
+//        {
+//            return "failed";
+//        }
+//        else
+//        {
+//            $content = $this->renderPartial('/blog/list',['lists'=>$list]);
+////            $content = "test";
+//            return $content;
+//        }
+
+
     }
 
     public function actionTest(){
