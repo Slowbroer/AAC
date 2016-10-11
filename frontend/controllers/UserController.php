@@ -52,7 +52,7 @@ class UserController extends Controller {
 
         $user_id = Yii::$app->user->identity->id;
 
-        var_dump(Yii::$app->user);
+        var_dump(Yii::$app->user->identity);
 //        $user_id = isset($_POST['user_id'])? $_POST['user_id']:0;
         $blog = new Blog();
 
