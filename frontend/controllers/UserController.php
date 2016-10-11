@@ -62,7 +62,7 @@ class UserController extends Controller {
 //            return "can not get the user_id ";
 //        }
 
-        var_dump(Yii::$app->user->identity->id);
+        var_dump(Yii::$app->user);
 //        $user_id = isset($_POST['user_id'])? $_POST['user_id']:0;
         $blog = new Blog();
 
