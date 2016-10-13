@@ -652,7 +652,7 @@ class User extends Component
      * If the user identity cannot be determined by session, this method will try to [[loginByCookie()|login by cookie]]
      * if [[enableAutoLogin]] is true.
      */
-    protected function renewAuthStatus()
+    protected function renewAuthStatus()//这里就是表示将用户id放到session里面用来当作用户已经登陆的凭证
     {
         $session = Yii::$app->getSession();
         $id = $session->getHasSessionId() || $session->getIsActive() ? $session->get($this->idParam) : null;
