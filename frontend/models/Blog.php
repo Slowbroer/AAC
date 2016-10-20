@@ -66,13 +66,20 @@ class Blog extends \yii\db\ActiveRecord
 
     public function info($id)
     {
-        return $this->find()->where(['id'=>$id])->one();
+        $blog = $this->find()->where(['id'=>$id])->one();
+
+        $blog->check_time = time();
+        $result = $blog->save();
+
+//        var_dump($result);
+
+        return $blog;
     }
 
     public function getRecent($user_id)
     {
 //        var_dump($user_id);
-        return $this->find()->where(['user_id'=>$user_id])->asArray()->all();
+        return $this->find()->where(['user_id'=>$user_id])->orderBy("check_time desc")->asArray()->all();
     }
 
     public function del($user_id,$blog_id)

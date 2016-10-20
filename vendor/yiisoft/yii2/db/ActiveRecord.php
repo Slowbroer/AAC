@@ -525,6 +525,7 @@ class ActiveRecord extends BaseActiveRecord
     public function update($runValidation = true, $attributeNames = null)
     {
         if ($runValidation && !$this->validate($attributeNames)) {
+//            var_dump("test");
             Yii::info('Model not updated due to validation error.', __METHOD__);
             return false;
         }

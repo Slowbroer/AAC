@@ -82,8 +82,10 @@ class BlogController extends Controller {
         }
         else
         {
-            $blog = Blog::findOne($blog_id);
-            echo $this->render('edit',['model'=>$blog]);
+//            $blog = Blog::findOne($blog_id);
+            $blog = new Blog();
+            $blog_info = $blog->info($blog_id);
+            echo $this->render('edit',['model'=>$blog_info]);
 
         }
 
