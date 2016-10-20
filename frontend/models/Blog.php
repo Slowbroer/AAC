@@ -88,6 +88,11 @@ class Blog extends \yii\db\ActiveRecord
 
     }
 
+    public function getList($user_id)
+    {
+        return $this->find()->where(['user_id'=>$user_id])->asArray()->all();
+    }
+
 
 
 }

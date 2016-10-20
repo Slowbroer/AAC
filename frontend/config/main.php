@@ -15,7 +15,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
-        'user' => [
+        'user' => [//这里的user是
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
 //            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],

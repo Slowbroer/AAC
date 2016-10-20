@@ -97,4 +97,16 @@ class BlogController extends Controller {
 
 
 
+    public function actionList()
+    {
+        $blog = new Blog();
+        $user_id = Yii::$app->user->id;
+
+        $lists = $blog->getList($user_id);
+
+
+        echo $this->render("my_blog",['model'=>$lists]);
+    }
+
+
 }
