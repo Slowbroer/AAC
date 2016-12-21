@@ -39,6 +39,9 @@ use \yii\bootstrap\Html;
     <a href="index.php?r=blog/add">
     <button type="button" class="btn btn-info">新建博客</button>
     </a>
+    <a href="index.php?r=blog/list">
+        <button type="button" class="btn btn-success">查看所有博客</button>
+    </a>
 </div>
 
 

@@ -25,6 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
+                <?= $form->field($model, 'capture')->widget(\yii\captcha\Captcha::className(),[
+                    'options'=>['placeholder'=>"验证码"],
+
+                ])->label(false) ?>
+
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>

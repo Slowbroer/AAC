@@ -99,7 +99,7 @@ class BlogController extends Controller {
 
 
 
-    public function actionList()
+    public function actionList()//我的所有博客
     {
         $blog = new Blog();
         $user_id = Yii::$app->user->id;
