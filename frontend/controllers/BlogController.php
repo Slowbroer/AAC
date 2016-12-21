@@ -10,6 +10,7 @@ namespace frontend\controllers;
 
 use app\models\Blog;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -22,7 +23,35 @@ class BlogController extends Controller {
 //        Yii::$app->response->format=Response::FORMAT_JSON;
 //        return ['blog'=>$blog];
 
-        return $this->render('info',['model'=>$blog_info]);
+        $lists = $blog->getList(Yii::$app->user->id);
+        $lists_length = count($lists);
+
+        $next = array();
+        $last = array();
+//        $lists = ArrayHelper::map($lists,'id','title');
+        foreach($lists as $key => $value)
+        {
+            if($value['id']==$blog_id)
+            {
+                if($key == 0)
+                {
+                    $next = $lists[1];
+                    $last = $lists[$lists_length-1];
+                }
+                else if($key == $lists_length-1)
+                {
+                    $next = $lists[0];
+                    $last = $lists[$key-1];
+                }
+                else
+                {
+                    $next = $lists[$key+1];
+                    $last = $lists[$key-1];
+                }
+            }
+        }
+
+        return $this->render('info',['model'=>$blog_info,'next'=>$next,'last'=>$last]);
     }
     public function actionSave(){
         $data = Yii::$app->request->post('Blog');
