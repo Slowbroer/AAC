@@ -9,6 +9,8 @@
 namespace frontend\controllers;
 
 use app\models\Blog;
+use app\models\Comment;
+use app\models\CommentForm;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -18,6 +20,10 @@ class BlogController extends Controller {
 
     public function actionInfo(){
         $blog_id = Yii::$app->request->get('id');
+        if(!is_int(intval($blog_id)))
+        {
+            return "test";
+        }
         $blog = new Blog();
         $blog_info = $blog->info($blog_id);
 //        Yii::$app->response->format=Response::FORMAT_JSON;
@@ -51,7 +57,13 @@ class BlogController extends Controller {
             }
         }
 
-        return $this->render('info',['model'=>$blog_info,'next'=>$next,'last'=>$last]);
+        $comment_form = new CommentForm();
+
+        $comment = new Comment();
+        $comment_lists = $comment->comment_list($blog_id);
+
+
+        return $this->render('info',['model'=>$blog_info,'next'=>$next,'last'=>$last,'comment_form'=>$comment_form,'comment_lists'=>$comment_lists]);
     }
     public function actionSave(){
         $data = Yii::$app->request->post('Blog');
@@ -138,6 +150,54 @@ class BlogController extends Controller {
 
         echo $this->render("my_blog",['model'=>$lists]);
     }
+
+
+    public function actionComment(){
+        $blog_id = isset($_POST['id'])? $_POST['id']:0;
+        $blog = Blog::findOne(['id'=>$blog_id]);//return false if the blog is not found
+
+        if(!$blog)
+        {
+            return json_encode(array('code'=>0,'message'=>"未找到相应的博客，可能已经被删除"));
+        }
+        else
+        {
+            $comment_form = new CommentForm();
+            if($comment_form->add_comment(Yii::$app->user->id,$blog_id))
+            {
+                return json_encode(array('code'=>1,'message'=>"发布成功，等待审核"));
+            }
+            else
+            {
+                return json_encode(array('code'=>1,'message'=>"发布失败"));
+            }
+        }
+    }
+
+    public function actionLoad_comment()
+    {
+        $blog_id = isset($_GET['id'])? $_GET['id']:0;
+        if(empty($blog_id))
+        {
+            return json_encode(array('code'=>0));
+        }
+        else
+        {
+            $comment = new Comment();
+            $comment_lists = $comment->comment_list($blog_id);
+            if(empty($comment_lists))
+            {
+                return json_encode(array('code'=>0));
+            }
+            else
+            {
+                return json_encode($comment_lists);
+            }
+
+
+        }
+    }
+
 
 
 }
